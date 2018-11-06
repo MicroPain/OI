@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<cstdio>
 int main(){
 	int n,m;
 	int sum=0;

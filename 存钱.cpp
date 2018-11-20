@@ -28,3 +28,6 @@ int main()
     printf("%.2f %d %d %d %d %d\n",temp,n1,n2,n3,n5,n8);
     return 0;
 }
+
+
+

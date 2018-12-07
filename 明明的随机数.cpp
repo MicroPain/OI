@@ -1,3 +1,4 @@
+洛谷题目地址：https://www.luogu.org/problemnew/show/P1059
 #include<iostream>
 #include<cstring>
 #include<algorithm>

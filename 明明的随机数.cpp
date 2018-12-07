@@ -5,54 +5,27 @@
 using namespace std;
 int main()
 {
-	int n,sum=0;
-	cin>>n;
-	bool s=true;
-	const int N=n;
-	int Ar[N],Ar1[N];
-	for(int i=0;i<N;i++)
+	int n=0,x=0,j=0;
+	scanf("%d",&n);
+	int Ar[1001],Ar1[n];
+	memset(Ar,0,sizeof(Ar));
+	for(int i=0;i<n;i++)
 	{
-		cin>>Ar[i];
+		scanf("%d",&x);
+		Ar[x]++;
 	} 
-	for(int i=0;i<N;i++)
+	for(int i=0;i<1001;i++)
 	{
-		for(int j=0;j<N;j++)
+		if(Ar[i]!=0)
 		{
-			if(Ar[i]==Ar1[j])
-				s=false;
+			Ar1[j]=i;
+			j++;
 		}
-		if(s){
-			Ar1[i]=Ar[i];
-			sum++;
-		}
-	 } 
-	for(int i=0;i<sum;i++)
-	 {
-	 	cout<<" "<<Ar1[i];
-	 }
-	 int x;
-	 cin>>x;
-	 const int K=sum;
-	 int ANS[K];
-	 ANS[0]=Ar1[0];
-	 for(int i=1;i<K;i++)
-	 {
-	 	int key=Ar[i];
-	 	for(int j=0;j<i;j++)
-	 	{
-	 		if(key<ANS[j])
-	 		{
-	 			for(int k=i;k>j;k--)
-	 			{
-	 				ANS[k]=ANS[k-1];
-	 				ANS[j]=key;
-				 }
-			 }
-		 }
-	 }
-	 for(int i=0;i<K;i++)
-	 {
-	 	cout<<" "<<ANS[i];
-	 }
+	}
+	printf("%d\n",j);
+	for(int i=0;i<j;i++)
+	{
+		printf("%d ",Ar1[i]);
+	}
 	return 0;
  } 

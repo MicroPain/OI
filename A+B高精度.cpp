@@ -1,12 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
+const int MAX 100
 int SCAN(int x[]);
 int ADD(int c[],int a[],int b[]);
 int main()
 {
-	int a[100];
-	int b[100];
-	int c[100];
+	int a[MAX];
+	int b[MAX];
+	int c[MAX];
 	memset(a,0,sizeof(a));
 	memset(b,0,sizeof(b));
 	memset(c,0,sizeof(c));
@@ -38,7 +39,7 @@ int ADD(int c[],int a[],int b[])
 			c[i]%=10;	
 		}
 	}
-	for(int i=99;i>=1;i--)
+	for(int i=MAX-1;i>=1;i--)
 	{
 		if(c[i]!=0)
 		{

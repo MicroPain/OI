@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int MAX 100
+const int MAX=100
 int SCAN(int x[]);
 int ADD(int c[],int a[],int b[]);
 int main()

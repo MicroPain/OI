@@ -1,3 +1,4 @@
+//https://www.luogu.org/problemnew/show/P1540
 #include<bits/stdc++.h> 
 using namespace std; 
 int dictionary[100001]; 

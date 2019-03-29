@@ -1,4 +1,6 @@
+//数据结构
 //栈的相关训练 
+//奥赛一本通 p397
 #include<iostream>
 #define size 100
 using namespace std;

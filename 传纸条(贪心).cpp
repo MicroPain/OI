@@ -1,3 +1,5 @@
+//洛谷P1006(才20分)
+//https://www.luogu.org/problemnew/show/P1006
 #include<iostream>
 #include<cstdio>
 int main(){

@@ -7,7 +7,6 @@ int main() {
 	cin>>n>>m;
 	int index=m+1;
 	int W[n+1];  //n名同学的接水量 
-	int W2[n+1]; //每名同学的耗时 
 	int SLT[m+1];
 	memset(SLT,0,sizeof(SLT));
 	memset(W,0,sizeof(W));

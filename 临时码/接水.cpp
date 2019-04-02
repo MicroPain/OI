@@ -3,7 +3,7 @@
 #define MAX 300001
 using namespace std;
 int main() {
-	int n,m,sec;  //有n名同学在排队，m个水龙头 
+	int n,m,sec=1;  //有n名同学在排队，m个水龙头 
 	cin>>n>>m;
 	int index=m+1;
 	int W[n+1];  //n名同学的接水量 
@@ -16,8 +16,8 @@ int main() {
 	for(int i=1;i<=m;i++) {
 		SLT[i]+=W[i];
 	}
-	for(sec=1;;sec++) {
-		int max=-1;
+	for(;;sec++) {
+		int max=-1000;
 		for(int i=1;i<=m;i++) {
 			if(SLT[i]>max)
 				max=SLT[i];

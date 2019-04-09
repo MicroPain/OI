@@ -13,8 +13,8 @@ int m_sort(int P[],int a,int b) {
 	return 0;
 }
 int main() {
-	int n,m,o;     //n艘船，m个人，船的限重为o 
-	cin>>n>>m;
+	int m,o,sum=0;     //m个人，船的限重为o，共需sum只船 
+	cin>>o>>m;
 	int P[m+1];
 	for(int i=1;i<=m;i++) {
 		cin>>P[i];		
@@ -25,7 +25,7 @@ int main() {
 		while(P[j]+P[i]>o&&i<j) {
 			j--;
 		}
-		if(P[j]+P[i]<=o) {
+		if(P[j]+P[i]<=o&&i<j) {
 			sum++;
 			j--;
 		}

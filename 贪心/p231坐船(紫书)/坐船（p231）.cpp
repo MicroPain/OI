@@ -25,15 +25,12 @@ int main() {
 		while(P[j]+P[i]>o&&i<j) {
 			j--;
 		}
-		if(P[j]+P[i]<=o&&i<j) {
+		if(i<j) {
 			sum++;
 			j--;
 		}
 	}
 	sum+=(m-sum*2); 
-	/*for(int i=1;i<=m;i++) {
-		cout<<" "<<P[i];
-	}*/
 	cout<<sum;
 	return 0;
 }

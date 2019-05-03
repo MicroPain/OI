@@ -1,66 +1,51 @@
-//洛谷P1006(才20分,这题应该用动归的)
-//https://www.luogu.org/problemnew/show/P1006
 #include<iostream>
-#include<cstdio>
+using namespace std;
+int mm_sort(int Ar[][3],int a,int b);
+int mm_ischosen(int Ar[][3],int a,int b); 
 int main(){
-	int n,m;
-	int sum=0;
-	scanf("%d %d",&n,&m);
-	const int N=n,M=m;
-	int Ar[M+1][N+1];
-	for(int i=1;i<=M;i++)
-		for(int j=1;j<=N;j++){
-			scanf("%d",&Ar[i][j]);			
+	int n,sum=0;		//共有n个活动,入选的活动有sum个 
+	cin>>n;				
+	int Ar[n+1][3];		//存放每个活动的始末时间 
+	for(int i=1;i<=n;i++){
+		for(int j=0;j<=1;j++){
+			cin>>Ar[i][j];
 		}
-	n=m=1;
-	while(!(n==N&&m==M)){
-		if(n==N){
-			m++;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
-			continue;
-		}
-		if(m==M){
-			n++;
-			sum+=Ar[m][n];
-			Ar[m][n]=0;
-			continue;
-		}
-		if(Ar[m+1][n]>=Ar[m][n+1]){
-			m++;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
-		}
-		else{
-			n++;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
+		Ar[i][2]=1;		//用于标记该区间是否被排除或选入 (1为待定)
+	}
+	mm_sort(Ar,1,n);	//按初始位置由小到大给Ar排序 
+	for(int i=1;i<=n;i++){
+		if(Ar[i][2]!=0){
+			Ar[i][2]=2;
+			for(int j=i+1;j<=n;j++){
+				Ar[j][2]=mm_ischosen(Ar,i,j);
+			}
 		}
 	}
-	while(!(n==1&&m==1)){
-		if(n==1){
-			m--;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
-			continue;
-		}
-		if(m==1){
-			n--;
-			sum+=Ar[m][n];
-			Ar[m][n]=0;
-			continue;
-		}
-		if(Ar[m-1][n]>=Ar[m][n-1]){
-			m--;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
-		}
-		else{
-			n--;
-			sum+=Ar[m][n];
-			Ar[m][n]=0; 
-		}
-	}
-	printf("%d",sum);
+	for(int i=1;i<=n;i++){
+		if(Ar[i][2]==2)
+			sum++;
+	} 
+	cout<<sum;
 	return 0;
-} 
+}
+int mm_sort(int Ar[][3],int a,int b){
+	for(int i=a;i<=b;i++){
+		for(int j=i;j<=b;j++){
+			if(Ar[j][1]<Ar[i][1]){
+				int t1,t2;
+				t1=Ar[j][1];
+				Ar[j][1]=Ar[i][1];
+				Ar[i][1]=t1;
+				t2=Ar[j][0];
+				Ar[j][0]=Ar[i][0];
+				Ar[i][0]=t2;		
+			}
+		}	
+	}
+}
+int mm_ischosen(int Ar[][3],int a,int b){
+	if(Ar[b][0]<Ar[a][1])
+		return 0;
+	else
+		return 1;
+}

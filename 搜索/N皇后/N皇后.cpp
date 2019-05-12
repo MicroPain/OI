@@ -27,7 +27,7 @@ void DFS(int x){
 bool check(int x,int i){
 	bool si=true;
 	for(int j=x-1;j>=1;j--){
-		if(row[j]==i||row[j]-(x-j)==i){
+		if(row[j]==i||row[j]-1==i||row[j]+1==i){
 			si=false;
 			break;
 		}
